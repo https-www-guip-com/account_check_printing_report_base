@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_payment_check_report_form" model="ir.ui.view">
+        <field name="name">account.payment.check.report.form</field>
+        <field name="model">account.payment.check.report</field>
+        <field name="arch" type="xml">
+            <form string="Check Layout">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="report"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="account_payment_check_report_tree" model="ir.ui.view">
+        <field name="name">account.payment.check.report.tree</field>
+        <field name="model">account.payment.check.report</field>
+        <field name="arch" type="xml">
+            <tree string="Check Layout">
+                <field name="name"/>
+                <field name="report"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="account_payment_check_report_search" model="ir.ui.view">
+        <field name="name">account.payment.check.report.search</field>
+        <field name="model">account.payment.check.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="report"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_account_payment_check_report"
+            model="ir.actions.act_window">
+        <field name="name">Revisar diseños del cheque</field>
+        <field name="res_model">account.payment.check.report</field>
+        <field name='view_type'>form</field>
+        <field name='view_mode'>tree,form</field>
+    </record>
+
+    <menuitem action='action_account_payment_check_report'
+              id='account_payment_check_report_menu'
+              name="Cheque diseños" parent='account.account_management_menu'
+              groups="account.group_account_manager"
+              sequence="30"/>
+
+    <!--AGREGAR NUEVA CELDA DE CONCEPTO DE PAGO-->
+    <record id="res_payment_form_view_inherited_nuevo" model="ir.ui.view">
+        <field name="name">Concepto De Pago</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_invoice_form"/>
+        <field name="arch" type="xml">
+             <field name="communication" position="after">
+                    <field name="concepto_cheque_pago" />
+             </field>
+        </field>
+
+    </record>
+    
+    <record id="res_payment_form_view_inherited_nuevo_2" model="ir.ui.view">
+        <field name="name">Concepto De Pago</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+             <field name="communication" position="after">
+                    <field name="concepto_cheque_pago" />
+             </field>
+        </field>
+
+    </record>
+    
+</odoo>

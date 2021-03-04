@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_check_base">
+        <t t-call="web.html_container">
+            <div class="header"/>
+            <div class="article">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                          
+                            <table>
+                                <br/>
+                                <br/>   
+                                <br/>  
+                               
+                                <tr>
+                                    <td>  
+                                            <div style="width: 680px;" >
+                                            
+                                            </div>
+                                    </td>
+
+                                    <td style="width: 550px; text-transform: uppercase; font-family: Times, serif; font-size: 22px;" >
+                                        Tegucigalpa M.D.C - <span style="text-transform: uppercase; font-family: Times, serif; font-size: 22px;" t-field="o.payment_date"/>
+
+                                    </td> 
+                                </tr>                            
+                            </table>
+                            
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <table>
+
+                                <tr> 
+                                    
+                                    <td>  
+                                        <div style="width: 75px;" >
+                                        
+                                        </div>
+                                    </td>
+                                    
+                                    <td style="width:600px; padding: 4px; font-family: Times, serif; font-size: 18px;">    
+                                        <b>         
+                                            <p  t-esc="o.partner_id.name"/>
+                                        </b>
+                                    </td>
+                                    
+                                    <td>  
+                                        <div style="width:277px;" >
+                                        
+                                        </div>
+                                    </td>
+
+                                    <td style="width:130px; padding:4px; font-family:Times, serif; font-size: 25px;">
+                                        <p> 
+                                            <b>  
+                                             <span t-field="o.amount" />
+                                            </b>
+                                        </p>
+                                    </td>
+                                  
+
+                                </tr>
+         
+
+                            </table>
+                         
+                           
+                            <table>
+                               
+                               
+                                
+                               
+                                
+                                <br/>
+                                
+                                <!--Cantidad en letras-->
+                                <tr>
+                                
+                                    <td>  
+                                        <div style="width: 75px;" >
+                                        
+                                        </div>
+                                    </td>
+                                    
+                                    <td style="width:240%; padding: 4px;">
+                                        <b>
+                                         <p  style="text-transform: uppercase; font-family: Times, serif; font-size: 17px; width:240%; padding: 4px;" t-esc="o.check_amount_in_words"/>
+                                        </b>
+                                    </td>
+
+                                
+                                </tr>
+                             
+                               
+                             </table>                             
+                       
+             
+
+                        <!--Linea Separadora-->
+              
+
+                                                               
+                       
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                       
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        
+                            <table >
+
+                                <tr> 
+                                    <td>  
+                                        <div style="width: 112px;" >
+                                        
+                                        </div>
+                                    </td>
+                                    
+                                    <td style="width:700px;">    
+                                        <br/> 
+                                        <b>       
+                                         <p style="text-transform: uppercase; font-family: Times, serif; font-size: 20px; width:400 px"  t-esc="o.concepto_cheque_pago"/>
+                                        </b>
+                                    </td>
+                                </tr>
+                   
+                            </table>
+                            
+
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                            <table >
+                               
+                                    <tr t-foreach="o.move_line_ids" t-as="l">
+                                        <td>  
+                                            <div style="table-layout: fixed; width:100px;" >
+                                        
+                                            </div>
+                                        </td>
+
+                                        <td style="table-layout: fixed; font-size: 17px; width:190px;  ">
+                                            <b>
+                                              <span style="text-transform: uppercase; font-family: Times, serif; font-size: 19px;" t-field="l.account_id.code"/> - <span t-field="l.account_id.name"/>
+                                            </b>
+                                        </td>
+
+                                        <td>  
+                                            <div style="width: 80px;" >
+                                            
+                                            </div>
+                                        </td>
+
+                                        <td class="text-left" style="table-layout: fixed; font-size: 19px; padding: 2px; width:320px;  ">
+                                            <b>
+                                                <span style="text-transform: uppercase; font-family: Times, serif; font-size: 17px;" t-field="l.name"/>
+                                            </b>
+                                        </td>
+                                        
+                                        <td>  
+                                            <div style="table-layout: fixed; width: 155px;" >
+                                                
+                                            </div>
+                                        </td>
+
+                                        <td class="text-left" style="table-layout: fixed; font-size:20px; padding: 2px;  width:100px;  ">
+                                            <b>
+                                                <span style="text-transform: uppercase; font-family: Times, serif; font-size: 22px;" t-field="l.debit"/>
+                                            </b>
+                                        </td>
+
+                                         <td>  
+                                            <div style="table-layout: fixed; width: 30px;" >
+                                            
+                                            </div>
+                                        </td>
+
+                                            
+                                        <td class="text-left" style="table-layout: fixed; font-size: 20px; padding: 2px;  width:100px;   ">
+                                        <b>
+                                                <span style="text-transform: uppercase; font-family: Times, serif; font-size: 22px;" t-field="l.credit"/>
+                                        </b>
+                                        </td>
+
+                                    </tr>
+                               
+
+                            </table>
+                                <!--
+                                <table width="100%">
+                                   
+                                        <td  class="text-center" style="font-size: 13px; padding: 2px;  ;   padding: 4px;">
+                                            <br/>
+                                            <br/> 
+                                        </td>
+                                        <td  class="text-center" style="font-size: 13px; padding: 2px;  ;  padding: 4px;">
+                                            <br/>
+                                            <br/> 
+                                        </td>
+                                        <td  class="text-center" style="font-size: 13px; padding: 2px;  ; padding: 4px;">
+                                           <br/> 
+                                           <br/>
+                                        </td>
+                                        <td  class="text-center" style="font-size: 13px; padding: 2px;  ;  padding: 4px;">
+                                           <br/>
+                                           <br/> 
+                                        </td>
+                                        <td  class="text-center" style="font-size: 13px; padding: 2px;  ;  padding: 4px;">
+                                           <br/>
+                                           <br/> 
+                                        </td>
+                                    
+                                </table>
+
+                             -->
+                            
+                            <!--
+                            <strong> Referencia: </strong> <strong t-field="o.communication"/>
+                            -->
+                            
+                           
+                            <!--
+                             <table style="font-size:14px; width:100%;">
+                                <tr>
+                                       
+                                    <td style="padding: 4px;">
+                                       <p>
+                                       Hecho Por:________________________________________
+                                       </p> 
+                                    </td>
+
+                                     <td style="padding: 4px;">
+                                       <p>
+                                       Revisado:_____________________________________
+                                       </p> 
+                                    </td>
+                                
+                                </tr>
+                                
+                                <tr style="height: 30px;" >
+
+
+                                </tr>
+
+                                 <tr>
+
+                                  <td style="padding: 4px;">
+                                       <p>
+                                       Autorizado por:_____________________________________
+                                       </p> 
+                                    </td>
+
+                                     <td style="padding: 4px;">
+                                       <p>
+                                       Recibido:_____________________________________
+                                       </p> 
+                                    </td>
+
+                                    
+                                </tr>
+
+                             </table>
+                            -->
+
+                    </div>
+                    <p style="page-break-before:always;"></p>
+                </t>
+            </div>
+        </t>
+    </template>
+
+</odoo>
